@@ -10,9 +10,14 @@ root = disp.screen().root
 def main():
     global disp
     global root
+    autoclicker_active = False
 
     while not keyboard.is_pressed('escape'):
-        autoclicker_logic(delay=1.0)
+        if keyboard.is_pressed('ctrl'):
+            autoclicker_active = True
+
+        if autoclicker_active:
+            autoclicker_logic(delay=0.01)
     sys.exit()
 
 # 0.0 hold time = instant release
